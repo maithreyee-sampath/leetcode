@@ -1,4 +1,4 @@
-#1d array:  memoization
+#1d array:  memoization/recursion
 class Solution:
     def climbStairs(self, n: int) -> int:
         dp = [-1]*(n+1) #declare the array
