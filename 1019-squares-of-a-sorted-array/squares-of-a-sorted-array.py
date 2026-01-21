@@ -9,11 +9,10 @@ class Solution:
             if abs(nums[left]) < abs(nums[right]):
                 res[j]= nums[right] * nums[right]
                 right-=1
-                j-=1
             else:
                 res[j]= nums[left]*nums[left]
                 left+=1
-                j-=1
+            j-=1
 
     
         return res
