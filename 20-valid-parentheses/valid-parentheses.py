@@ -4,16 +4,13 @@ class Solution:
         stack = []
 
         for i in range(len(s)):
-            if s[i] in brackets.keys() and not stack:
-                return False
-            elif s[i] in brackets.keys() and stack[-1] != brackets[s[i]]:
-                return False
-            elif s[i] in brackets.keys() and stack[-1] == brackets[s[i]]:
-                stack.pop()
-            elif s[i] in brackets.values():
+            if s[i] in brackets.values(): #if its an opening bracket
                 stack.append(s[i])
+            elif s[i] in brackets.keys():
+                if not stack or stack[-1] != brackets[s[i]]:
+                    return False
+                stack.pop()
 
-        if stack:
-            return False
-        else:
-            return True
+        return len(stack) == 0
+
+            
