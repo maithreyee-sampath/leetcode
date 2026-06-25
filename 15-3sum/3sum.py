@@ -7,7 +7,7 @@ class Solution:
 
         for i in range(len(nums)):
             if i !=0 and nums[i] == nums[i-1]:  # edge case: where i is checked for duplicates
-                continue
+                continue #skips to next val of i
             
             # 2 sum on the remainder of list
             l = i+1
@@ -15,13 +15,13 @@ class Solution:
 
             while l < r:
                 total = nums[i] + nums[l] + nums[r]
-                if total > 0:
-                    r -=1
+                if total > 0: 
+                    r -=1 #we want smaller sum
                 elif total < 0:
-                    l +=1
+                    l +=1 #we want greater sum
                 else:
                     res.append([nums[i], nums[l], nums[r]]) #appended res if sum is 0
-                    l+=1
-                    while l < r and nums[l] == nums[l-1]:
+                    l+=1 #look for more triplets
+                    while l < r and nums[l] == nums[l-1]: #if the vals are same then move forward
                         l +=1
         return res
